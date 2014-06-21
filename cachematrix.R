@@ -23,4 +23,5 @@ if(!is.null(minverse)) {
   return(minverse)
 }
 minverse <-solve(x)  
+
 }
