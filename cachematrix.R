@@ -1,15 +1,26 @@
-## Put comments here that give an overall description of what your
-## functions do
+## Both the functions work in tandem to cache the inverse of the matrix and to provide the results
+## In case the cache is empty, normal calculations happen. 
 
-## Write a short comment describing this function
+## makeCacheMatrix - creates a matrix object that caches its inverse.
 
 makeCacheMatrix <- function(x = matrix()) {
-
+  minverse<-NULL
+  m<<-solve(x)
+  return (m)
+  
 }
 
 
-## Write a short comment describing this function
+
+## cacheSolve computes the inverse of the matrix returned by makeCacheMatrix above. 
+## If the inverse has already been calculated, then the function retrieves the inverse from the cache.
 
 cacheSolve <- function(x, ...) {
-        ## Return a matrix that is the inverse of 'x'
+  ## Returns a matrix that is the inverse of 'x'
+minverse<-makeCacheMatrix(x)
+if(!is.null(minverse)) {
+  message("getting cached data")
+  return(minverse)
+}
+minverse <-solve(x)  
 }
